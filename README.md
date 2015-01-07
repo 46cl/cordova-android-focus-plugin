@@ -1,7 +1,7 @@
 What does it do ?
 =================
 
-The plugin offer the possibility to focus elements in the web view by emulating native clicks using Android [ViewGroup#dispatchTouchEvent](http://developer.android.com/reference/android/view/ViewGroup.html#dispatchTouchEvent(android.view.MotionEvent))
+The plugin offer the possibility to focus elements in the web view by emulating native touches using Android [ViewGroup#dispatchTouchEvent](http://developer.android.com/reference/android/view/ViewGroup.html#dispatchTouchEvent(android.view.MotionEvent))
 
 Why would you need this ?
 =========================
