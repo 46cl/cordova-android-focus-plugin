@@ -1,0 +1,13 @@
+{
+    "version": "0.1.0",
+    "name": "fr._46cl.focus",
+    "cordova_name": "Focus",
+    "description": "Focus plugin for android",
+    "repo": "https://github.com/46cl/cordova-android-focus-plugin.git",
+    "issue": "https://github.com/46cl/cordova-android-focus-plugin/issues",
+    "license": "MIT",
+    "keywords": [
+        "android",
+        "focus"
+    ]
+}

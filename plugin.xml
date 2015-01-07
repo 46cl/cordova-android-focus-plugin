@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="fr._46cl.focus"
+    version="0.1.0">
+    <name>Focus</name>
+    <description>Focus plugin for Android</description>
+    <license>Apache 2.0</license>
+    <keywords>Focus,android</keywords>
+    <repo>https://github.com/46cl/cordova-android-focus-plugin.git</repo>
+    <issue>https://github.com/46cl/cordova-android-focus-plugin/issues</issue>
+
+  <js-module src="www/focus.js" name="focus">
+    <clobbers target="cordova.plugins.Focus" />
+  </js-module>
+
+  <!-- android -->
+  <platform name="android">
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="Focus">
+        <param name="android-package" value="fr._46cl.focus.Focus" />
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/Focus.java" target-dir="src/fr/_46cl/focus/" />
+  </platform>
+
+</plugin>
