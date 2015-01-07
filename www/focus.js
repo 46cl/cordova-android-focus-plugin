@@ -15,8 +15,6 @@ Focus.focus = function(element) {
           right: elemRect.right - bodyRect.left,
           bottom: elemRect.bottom - bodyRect.top
         };
-    console.log("Coucou");
-    console.log("Rect: " + elemRect.right + " " + elemRect.bottom);
     exec(null, null, "Focus", "focus", [rect]);
 };
 
