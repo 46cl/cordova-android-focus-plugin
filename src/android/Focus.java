@@ -29,20 +29,16 @@ public class Focus extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
         if ("focus".equals(action)) {
 
-            // Get WebView location on screen
-            int[] location = new int[2];
-            webView.getLocationOnScreen(location);
-
             // Get device pixel density
             DisplayMetrics metrics = this.cordova.getActivity().getApplicationContext().getResources().getDisplayMetrics();
             float density = metrics.density;
 
             // Get bounding positions of target element
             JSONObject rect = args.getJSONObject(0);
-            float left = (density *  rect.getInt("left") + location[0]);
-            float top = (density * rect.getInt("top") + location[1]);
-            float right = (density * rect.getInt("right") + location[0]);
-            float bottom = (density * rect.getInt("bottom") + location[1]);
+            float left = (density *  rect.getInt("left"));
+            float top = (density * rect.getInt("top"));
+            float right = (density * rect.getInt("right"));
+            float bottom = (density * rect.getInt("bottom"));
 
             // Compute its center
             final Integer centerLeft = (int) (left + ((right - left) / 2));
