@@ -41,12 +41,12 @@ public class Focus extends CordovaPlugin {
             float bottom = (density * rect.getInt("bottom"));
 
             // Compute its center
-            final Integer centerLeft = (int) (left + ((right - left) / 2));
-            final Integer centerTop = (int) (top + ((bottom - top) / 2));
+            final Integer centerLeft = (int) ((right + left) / 2);
+            final Integer centerTop = (int) ((top + bottom) / 2);
             // Emulate click
             cordova.getActivity().runOnUiThread(new Runnable() {
               public void run() {
-                final long uMillis=SystemClock.uptimeMillis();
+			  	final long uMillis=SystemClock.uptimeMillis();
                 webView.dispatchTouchEvent(MotionEvent.obtain(uMillis, uMillis, MotionEvent.ACTION_DOWN, centerLeft, centerTop, 0));
                 webView.dispatchTouchEvent(MotionEvent.obtain(uMillis, uMillis, MotionEvent.ACTION_UP, centerLeft, centerTop, 0));
               }
