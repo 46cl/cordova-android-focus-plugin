@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     id="fr._46cl.focus"
-    version="0.1.2">
+    version="0.1.3">
     <name>Focus</name>
     <description>Focus plugin for Android</description>
     <license>Apache 2.0</license>
