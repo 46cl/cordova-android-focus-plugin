@@ -10,6 +10,7 @@ import org.json.JSONObject;
 import org.json.JSONException;
 
 import android.os.SystemClock;
+import android.os.Build;
 import android.view.MotionEvent;
 import android.util.DisplayMetrics;
 import android.content.Context;
@@ -32,6 +33,10 @@ public class Focus extends CordovaPlugin {
             // Get device pixel density
             DisplayMetrics metrics = this.cordova.getActivity().getApplicationContext().getResources().getDisplayMetrics();
             float density = metrics.density;
+            if (android.os.Build.VERSION.SDK_INT < 19) {
+              // Backward compatibility for API level < 19
+              density = 1;
+            }
 
             // Get bounding positions of target element
             JSONObject rect = args.getJSONObject(0);

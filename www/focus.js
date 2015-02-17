@@ -15,7 +15,7 @@ Focus.focus = function(element) {
             right: elemRect.right - bodyRect.left - window.pageXOffset,
             bottom: elemRect.bottom - bodyRect.top - window.pageYOffset
         };
-    exec(null, null, "Focus", "focus", [rect]);
+        exec(null, null, "Focus", "focus", [rect]);
 };
 
 module.exports = Focus;
