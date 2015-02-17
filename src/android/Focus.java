@@ -33,9 +33,11 @@ public class Focus extends CordovaPlugin {
             // Get device pixel density
             DisplayMetrics metrics = this.cordova.getActivity().getApplicationContext().getResources().getDisplayMetrics();
             float density = metrics.density;
+            if (android.os.Build.VERSION.SDK_INT < 19) {
+              // Backward compatibility for API level < 19
+              density = 1;
+            }
 
-			if (android.os.Build.VERSION.SDK_INT<19)
-				density=1;
             // Get bounding positions of target element
             JSONObject rect = args.getJSONObject(0);
             float left = (density *  rect.getInt("left"));
