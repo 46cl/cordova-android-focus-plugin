@@ -7,16 +7,17 @@ var Focus = function() {
 
 Focus.focus = function(element) {
     element = element.length ? element[0] : element;
-    var elemRect = element.getBoundingClientRect();
-    var bodyRect = document.body.getBoundingClientRect();
-
+    var jelement = $(element);
+    var offset = jelement.offset();
+    offset.top = offset.top - $(window).scrollTop();
+    offset.left = offset.left - $(window).scrollLeft();
         rect = {
-            top: elemRect.top - bodyRect.top - window.pageYOffset,
-            left: elemRect.left - bodyRect.left - window.pageXOffset,
-            right: elemRect.right - bodyRect.left - window.pageXOffset,
-          bottom: elemRect.bottom - bodyRect.top - window.pageYOffset
+            top: offset.top,
+            left: offset.left,
+            right: offset.left + jelement.width(),
+            bottom: offset.top + jelement.height()
         };
-    exec(null, null, "Focus", "focus", [rect]);
+        exec(null, null, "Focus", "focus", [rect]);
 };
 
 module.exports = Focus;
