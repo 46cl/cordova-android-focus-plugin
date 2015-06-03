@@ -52,8 +52,8 @@ public class Focus extends CordovaPlugin {
             cordova.getActivity().runOnUiThread(new Runnable() {
               public void run() {
                 final long uMillis = SystemClock.uptimeMillis();
-                webView.dispatchTouchEvent(MotionEvent.obtain(uMillis, uMillis, MotionEvent.ACTION_DOWN, centerLeft, centerTop, 0));
-                webView.dispatchTouchEvent(MotionEvent.obtain(uMillis, uMillis, MotionEvent.ACTION_UP, centerLeft, centerTop, 0));
+                webView.getView().dispatchTouchEvent(MotionEvent.obtain(uMillis, uMillis, MotionEvent.ACTION_DOWN, centerLeft, centerTop, 0));
+                webView.getView().dispatchTouchEvent(MotionEvent.obtain(uMillis, uMillis, MotionEvent.ACTION_UP, centerLeft, centerTop, 0));
               }
             });
             return true;
