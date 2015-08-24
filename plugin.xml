@@ -27,4 +27,7 @@
     <source-file src="src/android/Focus.java" target-dir="src/fr/_46cl/focus/" />
   </platform>
 
+  <engines>
+    <engine name="cordova" version=">=4.0.0" />
+  </engines>
 </plugin>

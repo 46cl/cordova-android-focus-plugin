@@ -33,10 +33,6 @@ public class Focus extends CordovaPlugin {
             // Get device pixel density
             DisplayMetrics metrics = this.cordova.getActivity().getApplicationContext().getResources().getDisplayMetrics();
             float density = metrics.density;
-            if (android.os.Build.VERSION.SDK_INT < 19) {
-              // Backward compatibility for API level < 19
-              density = 1;
-            }
 
             // Get bounding positions of target element
             JSONObject rect = args.getJSONObject(0);
@@ -52,8 +48,8 @@ public class Focus extends CordovaPlugin {
             cordova.getActivity().runOnUiThread(new Runnable() {
               public void run() {
                 final long uMillis = SystemClock.uptimeMillis();
-                webView.dispatchTouchEvent(MotionEvent.obtain(uMillis, uMillis, MotionEvent.ACTION_DOWN, centerLeft, centerTop, 0));
-                webView.dispatchTouchEvent(MotionEvent.obtain(uMillis, uMillis, MotionEvent.ACTION_UP, centerLeft, centerTop, 0));
+                webView.getView().dispatchTouchEvent(MotionEvent.obtain(uMillis, uMillis, MotionEvent.ACTION_DOWN, centerLeft, centerTop, 0));
+                webView.getView().dispatchTouchEvent(MotionEvent.obtain(uMillis, uMillis, MotionEvent.ACTION_UP, centerLeft, centerTop, 0));
               }
             });
             return true;
